@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     """
 
     #: The application name
-    APP_NAME: str = "Template Api"
+    APP_NAME: str = "Lulu database Api"
     #: The application version
     APP_VERSION: str = "0.0.1"
     #: The application debug mode
@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     #: The application api version
     API_V1_STR: str = "/api/v1"
 
+    DATABASE_URL: str
 
 
 @lru_cache()

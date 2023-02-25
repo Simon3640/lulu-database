@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-    template-service:
+    lulu-database-service:
         build:
             context: ..
             dockerfile: docker/Dockerfile.dev
@@ -10,12 +10,25 @@ services:
             - ../:/usr/src/app/
         ports:
             - 8001:8010
-            # - 9999:9999
         env_file:
             - ../.env
         networks:
-            - template-network
+            - lulu
+        depends_on:
+            - lulu-db
+            
+    lulu-db:
+        build:
+            context: ../db
+            dockerfile: Dockerfile
+        ports:
+            - "5433:5432"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        networks:
+            - lulu
 
 networks:
-    template-network:
+    lulu:
         external: True

@@ -1,0 +1,1 @@
+CREATE DATABASE lulu_db;

@@ -3,6 +3,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from app.api.router import api_router
 from app.core.config import settings
+from app.infraestructure.db.config import init_db
 
 
 def create_app() -> FastAPI:
@@ -25,3 +26,4 @@ app = create_app()
 @app.on_event("startup")
 async def startup_event():
     """Event start up"""
+    init_db(app)
