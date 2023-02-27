@@ -24,7 +24,7 @@ TORTOISE_ORM = {
 
 def init_db(app: FastAPI) -> None:
     """si es una base de datos en memoria se deben generar los esquemas inmediatamente"""
-    
+
     print(settings.DATABASE_URL)
     register_tortoise(
         app,

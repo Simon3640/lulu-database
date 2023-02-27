@@ -6,5 +6,6 @@ from app.protocols.db.crud.user import CRUDUserProtocol
 
 class UserService(ServiceBase[User, UserCreate, UserUpdate, CRUDUserProtocol]):
     ...
-    
+
+
 user_svc = UserService()
